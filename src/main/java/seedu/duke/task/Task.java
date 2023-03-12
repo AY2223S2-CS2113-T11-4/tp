@@ -34,7 +34,7 @@ public class Task {
         return this.deadline;
     }
 
-    public boolean getIsDone() {
+    public boolean isDone() {
         return this.isDone;
     }
 

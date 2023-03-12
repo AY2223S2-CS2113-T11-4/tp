@@ -16,6 +16,7 @@ public class Duke {
     public static void main(String[] args) {
         Ui ui = new Ui();
         TaskList taskList = new TaskList();
+        CommandParser parser = new CommandParser();
         try {
             taskList = Storage.loadData("./data.txt", ui);
         } catch (FileNotFoundException e) {
