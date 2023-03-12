@@ -122,6 +122,6 @@ public class TaskList {
      * Sorts the ArrayList tasks, by the corresponding Task deadlines
      */
     public void sortByDeadline() {
-        tasks.sort(Task.TaskDeadlineComparator);
+        tasks.sort(Task.taskDeadlineComparator);
     }
 }
