@@ -9,6 +9,7 @@ cd ..
 cd text-ui-test
 
 rm data.txt
+
 java  -jar $(find ../build/libs/ -mindepth 1 -print -quit) < input.txt > ACTUAL.TXT
 
 diff <(tr -d '\r' <ACTUAL.TXT) <(tr -d '\r' <EXPECTED.TXT)
