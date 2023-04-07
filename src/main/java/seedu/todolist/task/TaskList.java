@@ -4,6 +4,7 @@ import seedu.todolist.constants.Formats;
 import seedu.todolist.exception.InvalidIdException;
 import seedu.todolist.logic.Config;
 
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -134,6 +135,19 @@ public class TaskList {
                 .collect(toList());
     }
 
+    public ArrayList<Task> getTaskWithDescription(String description) {
+        return (ArrayList<Task>) tasks.values().stream()
+                .filter(t -> t.getDescription().contains(description))
+                .collect(toList());
+    }
+
+    public ArrayList<Task> getTaskWithEmail(String email) {
+        return (ArrayList<Task>) tasks.values().stream()
+                .filter(t -> t.getEmail() != null)
+                .filter(t -> t.getEmail().contains(email))
+                .collect(toList());
+    }
+
     //@@author ERJUNZE
     /**
      * Gets the string representation of the task at the given id of the task list.
@@ -175,13 +189,25 @@ public class TaskList {
         tasks.values().forEach(task -> tags.addAll(task.getTags()));
         return tags;
     }
-
+    //@@ KedrianLoh
     public HashSet<Integer> getAllPrioritiesInTaskList() {
         HashSet<Integer> priorities = new HashSet<>();
         tasks.values().forEach(task -> priorities.add(task.getPriority()));
         return priorities;
     }
 
+    public HashSet<String> getAllDescriptionInTaskList() {
+        HashSet<String> descriptions = new HashSet<>();
+        tasks.values().forEach(task -> descriptions.add(task.getDescription()));
+        return descriptions;
+    }
+
+    public HashSet<String> getAllEmailsInTaskList() {
+        HashSet<String> emails = new HashSet<>();
+        tasks.values().forEach(task -> emails.add(task.getEmail()));
+        return emails;
+    }
+    //@@ ERJUNZE
     public String setDescription(int id, String description) throws InvalidIdException {
         return getTask(id).setDescription(description);
     }
@@ -242,4 +268,5 @@ public class TaskList {
         }
         config.setLastChecked(LocalDateTime.now());
     }
+
 }

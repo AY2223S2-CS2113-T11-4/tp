@@ -34,6 +34,7 @@ public final class Errors {
     public static final String INVALID_FIND_DESCRIPTION = "Unable to find task with desired description. Please try " +
             "again.";
     public static final String INVALID_FIND_EMAIL = "Unable to find task with desired email. Please try again.";
+    public static final String INVALID_FIND_PRIORITY = "Unable to find task wth desired priority. Please try again.";
     private Errors() {
     }
 }

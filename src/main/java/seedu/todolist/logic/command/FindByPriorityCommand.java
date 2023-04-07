@@ -1,16 +1,15 @@
 package seedu.todolist.logic.command;
-//@@author KedrianLoh
 import seedu.todolist.constants.Flags;
-import seedu.todolist.exception.InvalidFindException;
+import seedu.todolist.exception.InvalidFindPriorityException;
 import seedu.todolist.exception.InvalidPriorityException;
 import seedu.todolist.logic.ParserUtil;
 import seedu.todolist.task.Task;
 import seedu.todolist.task.TaskList;
 import seedu.todolist.ui.Ui;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//@@author KedrianLoh
 public class FindByPriorityCommand extends Command{
     public static final Flags[] EXPECTED_FLAGS = {Flags.COMMAND_FIND_PRIORITY};
 
@@ -24,12 +23,12 @@ public class FindByPriorityCommand extends Command{
         }
     }
     @Override
-    public void execute(TaskList taskList, Ui ui) throws InvalidFindException {
+    public void execute(TaskList taskList, Ui ui) throws InvalidFindPriorityException {
         if (taskList.getAllPrioritiesInTaskList().contains(priority)) {
             ArrayList<Task> arrayList = taskList.getTaskWithPriority(priority);
-            ui.printTasksWithPriority(arrayList);
+            ui.printTasksWithPriority(arrayList, priority);
         } else {
-            throw new InvalidFindException();
+            throw new InvalidFindPriorityException();
         }
     }
 }
