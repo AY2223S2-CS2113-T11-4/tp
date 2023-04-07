@@ -300,6 +300,71 @@ Due: 23 Sep 3000 23:59
 Tags: difficult, later
 Repeat duration: 6
 ```
+### Find tasks based on tags
+Given that users can add tags to particular tasks, this command allows them to search by tags for a more consolidated 
+view.
+
+Format: `findbytag`
+ - The tag has to be a tag that can be found in the To-Do list.
+
+Example of usage:
+
+`findbytag hard` displays all tasks with the tag, hard
+
+```
+The following tasks are associated with the tag: hard
+[ID:000003][ ][presentation                          ]
+[ID:000004][ ][discussion                            ]
+```
+
+### Find tasks based on priority
+Given that users can add priority level to particular tasks, this command allows them to search by priority level 
+for a more consolidated view.
+
+Format: `findbypriority`
+- The priority has to be a priority that can be found in the To-Do list.
+
+Example of usage:
+
+`findbypriority 3` displays all tasks with the priority, 3
+
+```
+The following tasks are associated with the priority: 3
+[ID:000003][ ][presentation                          ]
+[ID:000004][ ][discussion                            ]
+```
+### Find tasks based on email
+Given that users can add emails to particular tasks, this command allows them to search by email for a more 
+consolidated view.
+
+Format: `findbyemail`
+- The email of the task has to be present in the To-Do list.
+
+Example of usage:
+
+`findbyemail james@gmail.com` displays all tasks that are linked to email, james@gmail.com
+
+```
+The following tasks are associated with the email: james@gmail.com
+[ID:000001][ ][homework                              ]
+[ID:000003][ ][presentation                          ]                       ]
+```
+
+### Find tasks based on description
+Given that every task has a description, this command allows them to search by description for a more consolidated view.
+
+Format: `findbydesc`
+- The description of the task has to be present in the To-Do list.
+
+Example of usage:
+
+`findbydesc presentation` displays all tasks that contains the description, presentation
+
+```
+The following tasks are associated with the description: presentation
+[ID:000003][ ][presentation                          ]
+[ID:000006][ ][presentation 2                        ]
+```
 
 ### Show progress of tasks that are due this week `progress`
 
