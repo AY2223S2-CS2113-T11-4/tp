@@ -26,6 +26,8 @@ import seedu.todolist.logic.command.MarkTaskCommand;
 import seedu.todolist.logic.command.ProgressBarCommand;
 import seedu.todolist.logic.command.UnmarkTaskCommand;
 import seedu.todolist.logic.command.EditConfigCommand;
+import seedu.todolist.logic.command.FindByDescriptionCommand;
+import seedu.todolist.logic.command.FindByEmailCommand;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -143,6 +145,10 @@ public class Parser {
             return new FindByTagCommand(getArguments(splitInput, FindByTagCommand.EXPECTED_FLAGS));
         case COMMAND_FIND_PRIORITY:
             return new FindByPriorityCommand(getArguments(splitInput, FindByPriorityCommand.EXPECTED_FLAGS));
+        case COMMAND_FIND_DESCRIPTION:
+            return new FindByDescriptionCommand(getArguments(splitInput, FindByDescriptionCommand.EXPECTED_FLAGS));
+        case COMMAND_FIND_EMAIL:
+            return new FindByEmailCommand(getArguments(splitInput, FindByEmailCommand.EXPECTED_FLAGS));
         case COMMAND_CONFIG:
             return new EditConfigCommand(getArguments(splitInput, EditConfigCommand.EXPECTED_FLAGS));
         default:

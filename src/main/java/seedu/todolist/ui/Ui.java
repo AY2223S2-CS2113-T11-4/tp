@@ -148,12 +148,32 @@ public class Ui {
     }
 
     //@@author KedrianLoh
-    public void printTasksWithTag(ArrayList<Task> taskList) {
+    public void printTasksWithTag(ArrayList<Task> taskList, String tag) {
+        System.out.println(Messages.LINE);
+        System.out.println(Messages.FIND_TAG + tag);
         taskList.forEach(System.out::println);
+        System.out.println(Messages.LINE);
     }
-    //@@author KedrianLoh
-    public void printTasksWithPriority(ArrayList<Task> taskList) {
+
+    public void printTasksWithPriority(ArrayList<Task> taskList, int priority) {
+        System.out.println(Messages.LINE);
+        System.out.println(Messages.FIND_PRIORITY + priority);
         taskList.forEach(System.out::println);
+        System.out.println(Messages.LINE);
+    }
+
+    public void printTasksWithDescription(ArrayList<Task> taskList, String description) {
+        System.out.println(Messages.LINE);
+        System.out.println(Messages.FIND_DESCRIPTION + description);
+        taskList.forEach(System.out::println);
+        System.out.println(Messages.LINE);
+    }
+
+    public void printTasksWithEmail(ArrayList<Task> taskList, String email) {
+        System.out.println(Messages.LINE);
+        System.out.println(Messages.FIND_EMAIL + email);
+        taskList.forEach(System.out::println);
+        System.out.println(Messages.LINE);
     }
 
     public void printHelpList() {

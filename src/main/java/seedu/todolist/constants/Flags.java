@@ -21,6 +21,8 @@ public enum Flags {
     COMMAND_FULL_INFO("info", false),
     COMMAND_FIND_TAG("findbytag", false),
     COMMAND_FIND_PRIORITY("findbypriority", false),
+    COMMAND_FIND_DESCRIPTION("findbydesc", false),
+    COMMAND_FIND_EMAIL("findbyemail", false),
     COMMAND_CONFIG("config", true),
 
     // Flags for commands that edit task parameters

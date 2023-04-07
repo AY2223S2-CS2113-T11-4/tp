@@ -27,6 +27,10 @@ public final class Messages {
     public static final String MISSING_CONFIG = "The configuration file was not found. Your settings will be reset" +
         " to default.";
     public static final String LOAD_CONFIG = "Your configuration file was successfully loaded.";
+    public static final String FIND_TAG = "The following tasks are associated with the tag: ";
+    public static final String FIND_PRIORITY = "The following tasks are associated with the priority: ";
+    public static final String FIND_DESCRIPTION = "The following tasks are associated with the description: ";
+    public static final String FIND_EMAIL = "The following tasks are associated with the email: ";
 
     private Messages() {}
 }
