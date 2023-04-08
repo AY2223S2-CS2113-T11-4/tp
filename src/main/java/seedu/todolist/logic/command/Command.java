@@ -1,6 +1,5 @@
 package seedu.todolist.logic.command;
 
-import seedu.todolist.exception.InvalidFindEmailException;
 import seedu.todolist.exception.ToDoListException;
 import seedu.todolist.model.Config;
 import seedu.todolist.ui.Ui;
