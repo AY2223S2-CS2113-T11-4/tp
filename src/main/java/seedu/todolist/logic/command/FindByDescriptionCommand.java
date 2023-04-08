@@ -1,8 +1,9 @@
 package seedu.todolist.logic.command;
 import seedu.todolist.constants.Flags;
 import seedu.todolist.exception.InvalidFindDescriptionException;
-import seedu.todolist.task.Task;
-import seedu.todolist.task.TaskList;
+import seedu.todolist.model.Config;
+import seedu.todolist.model.Task;
+import seedu.todolist.model.TaskList;
 import seedu.todolist.ui.Ui;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +22,7 @@ public class FindByDescriptionCommand extends Command {
         }
     }
     @Override
-    public void execute(TaskList taskList, Ui ui) throws InvalidFindDescriptionException {
+    public void execute(TaskList taskList, Config config, Ui ui) throws InvalidFindDescriptionException {
         if (taskList.getAllDescriptionInTaskList().contains(description)) {
             ArrayList<Task> arrayList = taskList.getTaskWithDescription(description);
             ui.printTasksWithDescription(arrayList, description);

@@ -1,8 +1,9 @@
 package seedu.todolist.logic.command;
 import seedu.todolist.constants.Flags;
 import seedu.todolist.exception.InvalidFindEmailException;
-import seedu.todolist.task.Task;
-import seedu.todolist.task.TaskList;
+import seedu.todolist.model.Config;
+import seedu.todolist.model.Task;
+import seedu.todolist.model.TaskList;
 import seedu.todolist.ui.Ui;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +23,7 @@ public class FindByEmailCommand extends Command{
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui) throws InvalidFindEmailException {
+    public void execute(TaskList taskList, Config config, Ui ui) throws InvalidFindEmailException {
         if (taskList.getAllEmailsInTaskList().contains(email)) {
             ArrayList<Task> arrayList = taskList.getTaskWithEmail(email);
             ui.printTasksWithEmail(arrayList, email);

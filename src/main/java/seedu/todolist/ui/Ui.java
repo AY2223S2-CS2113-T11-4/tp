@@ -2,7 +2,7 @@ package seedu.todolist.ui;
 
 import seedu.todolist.constants.HelpMessages;
 import seedu.todolist.constants.Messages;
-import seedu.todolist.task.Task;
+import seedu.todolist.model.Task;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -11,13 +11,18 @@ import java.util.Scanner;
 public class Ui {
     private final Scanner input = new Scanner(System.in);
 
+    public void close() {
+        input.close();
+    }
+
     public String getUserInput() {
         System.out.print("> ");
         return input.nextLine();
     }
 
-    public void close() {
-        input.close();
+    public boolean getUserConfirmation() {
+        System.out.print(Messages.CONFIRM);
+        return input.nextLine().equals("YES");
     }
 
     /**
@@ -48,6 +53,14 @@ public class Ui {
         println(Messages.START);
     }
 
+    public void printNewConfigMessage() {
+        println(Messages.NEW_CONFIG);
+    }
+
+    public void printLoadConfigMessage() {
+        println(Messages.LOAD_CONFIG);
+    }
+
     public void printNewSaveMessage() {
         println(Messages.NEW_SAVE);
     }
@@ -65,11 +78,11 @@ public class Ui {
     }
 
     public void printMarkTaskMessage(String taskString) {
-        println(Messages.MARK_TASK, taskString);
+        println(Messages.MARK_TASK, Messages.LINE, taskString);
     }
 
     public void printUnmarkTaskMessage(String taskString) {
-        println(Messages.UNMARK_TASK, taskString);
+        println(Messages.UNMARK_TASK, Messages.LINE, taskString);
     }
 
     public void printDeleteTaskMessage(String taskString) {
@@ -77,43 +90,39 @@ public class Ui {
     }
 
     public void printEditTaskMessage(String parameterType, String newValue, String taskString) {
-        println(String.format(Messages.EDIT_TASK, parameterType, newValue), taskString);
+        println(String.format(Messages.EDIT_TASK, parameterType, newValue), Messages.LINE, taskString);
     }
 
-    public void printDeleteTagsMessage(String tagsRemoved, String taskString) {
-        println("Okay, I have removed the following tags [" + tagsRemoved + "] of this task:", taskString);
+    public void printEditTagsMessage(String action, String preposition, String tagString, String taskString) {
+        println(String.format(Messages.EDIT_TAGS_TASK, action, tagString, preposition), taskString);
     }
+
     public void printEditDeleteTaskMessage(String parameterType, String taskString) {
-        println(String.format(Messages.EDIT_DELETE_TASK, parameterType), taskString);
+        println(String.format(Messages.EDIT_DELETE_TASK, parameterType), Messages.LINE, taskString);
     }
 
     public void printEditConfigMessage(String taskString) {
-        println(String.format(Messages.EDIT_CONFIG_INFO), taskString);
+        println(String.format(Messages.EDIT_CONFIG), taskString);
     }
 
     public void printConfigInfo(String taskString) {
         println(String.format(Messages.CONFIG_INFO), taskString);
     }
 
-    public void printMissingConfigMessage() {
-        println(Messages.MISSING_CONFIG);
-    }
-
-    public void printLoadConfigMessage() {
-        println(Messages.LOAD_CONFIG);
+    public void printFilteredNoTasksFoundMessage() {
+        println(Messages.FILTERED_NONE);
     }
 
     public void printTaskList(int taskListSize, String taskListString) {
         if (taskListSize == 0) {
             println(Messages.LIST_EMPTY);
         } else {
-            println(Messages.LIST_TASKS + generateTaskCountString(taskListSize),
-                    taskListString);
+            println(Messages.LIST_TASKS + generateTaskCountString(taskListSize), Messages.LINE, taskListString);
         }
     }
 
     public void printGetFullInfoMessage(String infoString) {
-        println(Messages.FULL_INFO, infoString);
+        println(Messages.FULL_INFO, Messages.LINE, infoString);
     }
 
     public void printGetTagsMessage(int tagCount, String tagsString) {
@@ -136,7 +145,6 @@ public class Ui {
             return;
         }
 
-        assert tasksThisWeek != 0;
         double progress = (double) completedTasksThisWeek / tasksThisWeek;
         int completedSections = (int) (progress * totalSections);
         int incompleteSections = totalSections - completedSections;
@@ -155,7 +163,7 @@ public class Ui {
         System.out.println(Messages.LINE);
     }
 
-    public void printTasksWithPriority(ArrayList<Task> taskList, int priority) {
+    public void printTasksWithPriority(ArrayList<Task> taskList, String priority) {
         System.out.println(Messages.LINE);
         System.out.println(Messages.FIND_PRIORITY + priority);
         taskList.forEach(System.out::println);
@@ -176,7 +184,12 @@ public class Ui {
         System.out.println(Messages.LINE);
     }
 
+    //@@author RuiShengGit
     public void printHelpList() {
         println(HelpMessages.HELP_COMMAND);
+    }
+
+    public void printResetMessage(boolean reset) {
+        println(reset ? Messages.RESET : Messages.CANCEL);
     }
 }

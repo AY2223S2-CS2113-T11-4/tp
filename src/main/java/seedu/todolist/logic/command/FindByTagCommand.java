@@ -2,8 +2,9 @@ package seedu.todolist.logic.command;
 import seedu.todolist.constants.Flags;
 import seedu.todolist.exception.InvalidFindTagException;
 import seedu.todolist.exception.ToDoListException;
-import seedu.todolist.task.Task;
-import seedu.todolist.task.TaskList;
+import seedu.todolist.model.Config;
+import seedu.todolist.model.Task;
+import seedu.todolist.model.TaskList;
 import seedu.todolist.ui.Ui;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +23,7 @@ public class FindByTagCommand extends Command{
         }
     }
     @Override
-    public void execute(TaskList taskList, Ui ui) throws InvalidFindTagException {
+    public void execute(TaskList taskList, Config config, Ui ui) throws InvalidFindTagException {
         if (taskList.getAllTags().contains(tag)) {
             ArrayList<Task> arrayList = taskList.getTaskWithTag(tag);
             ui.printTasksWithTag(arrayList, tag);
